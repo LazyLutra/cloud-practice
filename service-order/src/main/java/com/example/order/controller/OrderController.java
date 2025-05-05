@@ -4,7 +4,7 @@ import com.example.order.entity.OrderEntity;
 import com.example.order.service.OrderService;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date: 2025/5/3 16:46
  * @version: 1.0
  */
-@RefreshScope
+@EnableFeignClients // 开启feign远程调用功能
 @RestController
 public class OrderController {
 

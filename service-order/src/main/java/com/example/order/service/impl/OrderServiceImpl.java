@@ -1,8 +1,10 @@
 package com.example.order.service.impl;
 
 import com.example.order.entity.OrderEntity;
+import com.example.order.feign.ProductFeignClient;
 import com.example.order.service.OrderService;
 import com.example.product.entity.ProductEntity;
+import jakarta.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import org.springframework.stereotype.Service;
@@ -16,10 +18,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderServiceImpl implements OrderService {
 
+    @Resource
+    private ProductFeignClient productFeignClient;
+
     @Override
     public OrderEntity createOrder(Long productId, Long userId) {
 
-        ProductEntity productEntity = getProductById(productId);
+        // 商品服务，使用 feign 获取商品信息
+        ProductEntity productEntity = productFeignClient.getProductById(productId);
 
         OrderEntity orderEntity = new OrderEntity();
         orderEntity.setId(1L);
@@ -30,16 +36,6 @@ public class OrderServiceImpl implements OrderService {
         orderEntity.setProductList(Arrays.asList(productEntity));
 
         return orderEntity;
-    }
-
-    /**
-     * TODO 待完善 获取商品信息
-     * @param productId
-     * @return
-     */
-    private ProductEntity getProductById(Long productId) {
-        ProductEntity productEntity = new ProductEntity();
-        return productEntity;
     }
 
 }
