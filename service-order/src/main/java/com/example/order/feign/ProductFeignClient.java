@@ -1,5 +1,6 @@
 package com.example.order.feign;
 
+import com.example.order.feign.fallback.ProductFeignFallback;
 import com.example.product.entity.ProductEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * 商品服务 Feign
  */
-@FeignClient(value = "product-service") // Feign 客户端，指定调用微服务的名称
+@FeignClient(value = "product-service", fallback = ProductFeignFallback.class) // Feign 客户端，指定调用微服务的名称
 public interface ProductFeignClient {
 
     /**

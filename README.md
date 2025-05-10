@@ -20,6 +20,6 @@
 | **Seata** | 2.0.0 | 分布式事务解决方案，支持 AT、TCC、Saga 等事务模式 |
 
 # 参考资料
-[完整springcloudalibaba项目搭建教程（新手入门）](https://blog.csdn.net/cl617287/category_12383102.html)
-[尚硅谷2025最新SpringCloud教程，springcloud从入门到大牛](https://www.bilibili.com/video/BV1UJc2ezEFU)
-[IDEA项目如何上传至GitHub](https://blog.csdn.net/m0_73972962/article/details/146198392)
+- [完整springcloudalibaba项目搭建教程（新手入门）](https://blog.csdn.net/cl617287/category_12383102.html)
+- [尚硅谷2025最新SpringCloud教程，springcloud从入门到大牛](https://www.bilibili.com/video/BV1UJc2ezEFU)
+- [IDEA项目如何上传至GitHub](https://blog.csdn.net/m0_73972962/article/details/146198392)

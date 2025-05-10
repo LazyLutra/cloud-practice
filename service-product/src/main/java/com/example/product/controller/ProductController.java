@@ -3,6 +3,7 @@ package com.example.product.controller;
 import com.example.product.entity.ProductEntity;
 import com.example.product.service.ProductService;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,12 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/getProductById/{id}")
-    public ProductEntity getProductById(@PathVariable("id") Long id) {
+    public ProductEntity getProductById(@PathVariable("id") Long id,
+        HttpServletRequest request) {
+
+        String header = request.getHeader("XToken");
+        System.out.println("自定义请求头为：" + header);
+
         ProductEntity product = productService.getProductById(id);
 
         return product;
